@@ -1,0 +1,122 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ],
+    "templates": {
+      "base": {
+        "wounds": {
+          "value": 0,
+          "min": 0,
+          "max": 2
+        },
+        "cloneNumber": {
+          "value": 1,
+          "min": 1,
+          "max": 6
+        },
+        "biography": ""
+      }
+    },
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "attributes": {
+        "sc": {
+          "value": "Infrarojo"
+        }
+      },
+      "abilities": {
+        "strength": {
+          "value": 10
+        },
+        "constitution": {
+          "value": 10
+        },
+        "agility": {
+          "value": 10
+        },
+        "dexterity": {
+          "value": 10
+        },
+        "perception": {
+          "value": 10
+        },
+        "cynicism": {
+          "value": 10
+        },
+        "mechanics": {
+          "value": 10
+        },
+        "power": {
+          "value": 10
+        }
+      }
+    },
+    "npc": {
+      "templates": [
+        "base"
+      ],
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": [
+      "item",
+      "feature",
+      "mutantPower",
+      "weapon",
+      "skill"
+    ],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "weapon": {
+        "weaponType": "",
+        "damage": 0,
+        "reach": 0,
+        "radius": 0,
+        "reloadTime": 0,
+        "ammo": 0
+      },
+      "skill": {
+        "name": "",
+        "description": "",
+        "mod": ""
+      }
+    },
+    "item": {
+      "templates": [
+        "base"
+      ],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "feature": {
+      "templates": [
+        "base"
+      ]
+    },
+    "mutantPower": {
+      "templates": [
+        "base"
+      ],
+      "name": ""
+    },
+    "weapon": {
+      "templates": [
+        "base",
+        "weapon"
+      ]
+    },
+    "skill": {
+      "templates": [
+        "skill"
+      ]
+    }
+  }
+}

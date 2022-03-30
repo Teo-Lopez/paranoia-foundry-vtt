@@ -1,0 +1,26 @@
+{
+  "BOILERPLATE.AbilityStr": "Fuerza",
+  "BOILERPLATE.AbilityCon": "Resistencia",
+  "BOILERPLATE.AbilityDex": "Destreza",
+  "BOILERPLATE.AbilityAgi": "Agilidad",
+  "BOILERPLATE.AbilityPer": "Percepción",
+  "BOILERPLATE.AbilityCyn": "Cinismo",
+  "BOILERPLATE.AbilityMec": "Talento Mecánico",
+  "BOILERPLATE.AbilityPower": "Poder Mutante",
+
+  "BOILERPLATE.AbilityStrAbbr": "Fue",
+  "BOILERPLATE.AbilityConAbbr": "Res",
+  "BOILERPLATE.AbilityDexAbbr": "Des",
+  "BOILERPLATE.AbilityAgiAbbr": "Agi",
+  "BOILERPLATE.AbilityPerAbbr": "Per",
+  "BOILERPLATE.AbilityCynAbbr": "Cin",
+  "BOILERPLATE.AbilityMecAbbr": "Mec",
+  "BOILERPLATE.AbilityPowerAbbr": "Poder M",
+
+  "BOILERPLATE.EffectCreate": "Create Effect",
+  "BOILERPLATE.EffectToggle": "Toggle Effect",
+  "BOILERPLATE.EffectEdit": "Edit Effect",
+  "BOILERPLATE.EffectDelete": "Delete Effect",
+
+  "BOILERPLATE.Add": "Add"
+}

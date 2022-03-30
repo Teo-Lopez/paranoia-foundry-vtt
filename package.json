@@ -1,0 +1,38 @@
+{
+  "name": "paranoia",
+  "version": "1.0.0",
+  "description": "CSS compiler for the Paranoia system",
+  "scripts": {
+    "build": "gulp buildAll",
+    "build:db": "gulp compilePacks",
+    "compile": "gulp css",
+    "watch": "gulp",
+    "gulp": "gulp"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "John Doe",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.4",
+    "eslint-plugin-jsdoc": "^32.3.0",
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-eslint7": "^0.3.1",
+    "gulp-if": "^3.0.0",
+    "gulp-less": "^5.0.0",
+    "merge-stream": "^2.0.0",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7",
+    "through2": "^2.0.5",
+    "yargs": "^7.1.2"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.49.10"
+  }
+}
