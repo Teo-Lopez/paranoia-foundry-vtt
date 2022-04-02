@@ -6,12 +6,8 @@
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "9",
   "author": "Teodoro Lopez",
-  "esmodules": [
-    "module/paranoia.mjs"
-  ],
-  "styles": [
-    "css/paranoia.css"
-  ],
+  "esmodules": ["module/paranoia.mjs"],
+  "styles": ["css/paranoia.css"],
   "scripts": [],
   "packs": [
     {
@@ -29,6 +25,63 @@
       "path": "./packs/weapons.db",
       "entity": "Item",
       "type": "Item"
+    },
+    {
+      "name": "secret societies",
+      "label": "Sociedades Secretas",
+      "system": "paranoia",
+      "path": "./packs/secret_societies.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry"
+    },
+    {
+      "name": "gear",
+      "label": "Equipo",
+      "system": "paranoia",
+      "path": "./packs/gear.db",
+      "entity": "Item",
+      "type": "Item"
+    },
+    {
+      "name": "mutant powers",
+      "label": "Poderes Mutantes",
+      "system": "paranoia",
+      "path": "./packs/mutant_powers.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry"
+    },
+    {
+      "name": "rules",
+      "label": "Reglas",
+      "system": "paranoia",
+      "path": "./packs/rules.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry"
+    },
+
+    {
+      "name": "services",
+      "label": "Servicios",
+      "system": "paranoia",
+      "path": "./packs/services.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry"
+    },
+    {
+      "name": "powers",
+      "label": "Poderes Mutantes",
+      "system": "paranoia",
+      "path": "./packs/mutantPowers.db",
+      "entity": "JournalEntry",
+      "type": "JournalEntry"
+    },
+    {
+      "name": "rollableTables",
+      "label": "Tablas",
+      "system": "paranoia",
+      "path": "./packs/rollableTables.db",
+      "entity": "RollTable",
+      "type": "RollTable"
     }
   ],
   "languages": [

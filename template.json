@@ -1,9 +1,6 @@
 {
   "Actor": {
-    "types": [
-      "character",
-      "npc"
-    ],
+    "types": ["character", "npc"],
     "templates": {
       "base": {
         "wounds": {
@@ -16,19 +13,15 @@
           "min": 1,
           "max": 6
         },
+        "service": "",
+        "secret_society": "",
+        "favour": 0,
         "biography": ""
       }
     },
     "character": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "attributes": {
-        "sc": {
-          "value": "Infrarojo"
-        }
-      },
-      "abilities": {
         "strength": {
           "value": 10
         },
@@ -53,23 +46,167 @@
         "power": {
           "value": 10
         }
+      },
+      "skills": {
+        "ancientBladeWeapons": {
+          "value": 0,
+          "attribute": "agility"
+        },
+        "energyBlade": {
+          "value": 0,
+          "attribute": "agility"
+        },
+        "grenades": {
+          "value": 0,
+          "attribute": "agility"
+        },
+        "neuroWhip": {
+          "value": 0,
+          "attribute": "agility"
+        },
+        "fightBaton": {
+          "value": 0,
+          "attribute": "agility"
+        },
+        "charm": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "charlatanery": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "lying": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "forgery": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "interrogation": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "intimidation": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "falseLogic": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "oratory": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "psychology": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "bribery": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "suggestion": {
+          "value": 0,
+          "attribute": "cynicism"
+        },
+        "ancientThrowWeapons": {
+          "value": 0,
+          "attribute": "dexterity"
+        },
+        "projectilEnergyLaserWar": {
+          "value": 0,
+          "attribute": "dexterity"
+        },
+        "vehicleWeapons": {
+          "value": 0,
+          "attribute": "dexterity"
+        },
+        "warVehicleWeapons": {
+          "value": 0,
+          "attribute": "dexterity"
+        },
+        "missiles": {
+          "value": 0,
+          "attribute": "dexterity"
+        },
+        "mechanics": {
+          "value": 0,
+          "attribute": "mechanics"
+        },
+        "engineering": {
+          "value": 0,
+          "attribute": "mechanics"
+        },
+        "robotics": {
+          "value": 0,
+          "attribute": "mechanics"
+        },
+        "dataAnalysis": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "bioEngineering": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "bioChemistry": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "dataSearch": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "demolition": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "nuclearPhysics": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "mechanicEngineering": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "medicine": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "chemistry": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "security": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "survival": {
+          "value": 0,
+          "attribute": "perception"
+        },
+        "surveillance": {
+          "value": 0,
+          "attribute": "perception"
+        }
+      },
+      "carry": 25,
+      "physicalDamage": 0,
+      "resistance": 0,
+      "sc": {
+        "value": "Infrarojo"
       }
     },
     "npc": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "cr": 0
     }
   },
   "Item": {
-    "types": [
-      "item",
-      "feature",
-      "mutantPower",
-      "weapon",
-      "skill"
-    ],
+    "types": ["item", "feature", "mutantPower", "weapon", "skill"],
     "templates": {
       "base": {
         "description": ""
@@ -83,40 +220,26 @@
         "ammo": 0
       },
       "skill": {
-        "name": "",
-        "description": "",
         "mod": ""
       }
     },
     "item": {
-      "templates": [
-        "base"
-      ],
+      "templates": ["base"],
       "quantity": 1,
       "weight": 0,
       "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
     "feature": {
-      "templates": [
-        "base"
-      ]
+      "templates": ["base"]
     },
     "mutantPower": {
-      "templates": [
-        "base"
-      ],
-      "name": ""
+      "templates": ["base"]
     },
     "weapon": {
-      "templates": [
-        "base",
-        "weapon"
-      ]
+      "templates": ["base", "weapon"]
     },
     "skill": {
-      "templates": [
-        "skill"
-      ]
+      "templates": ["base", "skill"]
     }
   }
 }
