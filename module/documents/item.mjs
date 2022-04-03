@@ -73,6 +73,14 @@ export class ParanoiaItem extends Item {
     this._showRollMessage(`[${item.type}] ${item.name}`, roll)
   }
 
+  _rollSkill(item) {
+    const rollData = this.getRollData()
+    console.log(item.data.mod, rollData)
+    // Invoke the roll and submit it to chat.
+    const roll = new Roll(rollData.item.formula, rollData)
+    this._showRollMessage(`[${item.type}] ${item.name}`, roll)
+  }
+
   _checkArmorAndResistance(item) {
     showDialog({
       title: 'Damage Roll',
