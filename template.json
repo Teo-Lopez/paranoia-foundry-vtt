@@ -76,6 +76,13 @@
           "formula": "1d20ms < @skills.neuroWhip.value",
           "attribute": "agility"
         },
+        "fight": {
+          "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.fight.value",
+          "attribute": "agility"
+        },
         "fightBaton": {
           "value": 0,
           "baseValue": 0,
@@ -321,6 +328,7 @@
       },
       "weapon": {
         "weaponType": "",
+        "skill": "",
         "damage": 0,
         "reach": 0,
         "radius": 0,
@@ -329,7 +337,7 @@
       },
       "armor": {
         "armorType": "",
-        "armor": 0
+        "value": 0
       },
       "skill": {
         "mod": ""

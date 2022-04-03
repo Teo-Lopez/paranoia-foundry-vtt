@@ -87,15 +87,15 @@ export class ParanoiaItem extends Item {
       content: `
                 <div>
                   <div class="grid">
-                    <label>Resistencia del objetivo</label><input defaultValue="0" name="resistance"></input>
+                    <label>Resistencia del objetivo</label><input value="0" name="resistance"></input>
                   </div>
                   <div class="grid">
-                    <label>Armadura del objetivo</label><input defaultValue="0" name="armor"></input>
+                    <label>Armadura del objetivo</label><input value="0" name="armor"></input>
                   </div>
                 </div>`,
       buttons: {
         armor: {
-          label: 'Armor',
+          label: 'Tirar',
           callback: (html) => {
             const armor = $(html).find('[name=resistance]').val()
             const resistance = $(html).find('[name=armor]').val()
@@ -103,7 +103,7 @@ export class ParanoiaItem extends Item {
           },
         },
       },
-      default: 'Armor',
+      default: 'Tirar',
     })
   }
 
