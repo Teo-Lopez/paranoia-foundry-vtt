@@ -206,7 +206,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "mutantPower", "weapon", "skill"],
+    "types": ["item", "feature", "mutantPower", "weapon", "armor", "skill"],
     "templates": {
       "base": {
         "description": ""
@@ -218,6 +218,10 @@
         "radius": 0,
         "reloadTime": 0,
         "ammo": 0
+      },
+      "armor": {
+        "armorType": "",
+        "armor": 0
       },
       "skill": {
         "mod": ""
