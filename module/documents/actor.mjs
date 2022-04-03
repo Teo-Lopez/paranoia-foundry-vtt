@@ -50,12 +50,21 @@ export class ParanoiaActor extends Actor {
     this._calcCarryingCapacity(actorData)
     this._calcPhysicalDamage(actorData)
     this._calcResistance(actorData)
+    this._calcSkillsValues(actorData)
   }
 
   _calcAtrrModifiers(actorData) {
     const data = actorData.data
     for (let [key, attribute] of Object.entries(data.attributes)) {
       attribute.mod = abilityMods[+attribute.value]
+    }
+  }
+
+  _calcSkillsValues(actorData) {
+    const data = actorData.data
+    for (let [_skillName, skill] of Object.entries(data.skills)) {
+      skill.baseValue = data.attributes[skill.attribute].mod
+      skill.value = skill.baseValue + skill.points
     }
   }
 
@@ -97,8 +106,8 @@ export class ParanoiaActor extends Actor {
     const data = super.getRollData()
 
     // Prepare character roll data.
-    this.data.type !== 'character' && this._getCharacterRollData(data)
-    this._getNpcRollData(data)
+    this.data.type === 'character' && this._getCharacterRollData(data)
+    this.data.type === 'npc' && this._getNpcRollData(data)
 
     return data
   }
@@ -114,7 +123,6 @@ export class ParanoiaActor extends Actor {
         data[k] = foundry.utils.deepClone(v)
       }
     }
-
     // Add level for easier access, or fall back to 0.
     if (data.attributes.level) {
       data.lvl = data.attributes.level.value ?? 0

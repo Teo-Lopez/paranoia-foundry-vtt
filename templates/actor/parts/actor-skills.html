@@ -22,13 +22,47 @@
 </ol> -->
 
 <ol class="items-list">
-  {{#each data.skills}}
-  <li class="item flexrow">
-    <div class="item-name">
-      <h4 class="rollable" data-roll-type="skill">{{@key}}</h4>
+  <li class="item grid grid-5col">
+    <div class="item-name grid-span-2">
+      <h4>Habilidad</h4>
     </div>
-    <div class="item-controls">
-      <input name="{{@key}}" value="{{value}}" />
+    <div>Valor base</div>
+    <div>Puntos invertidos</div>
+    <div>Valor final</div>
+  </li>
+  {{#each data.skills}}
+  <li class="item grid grid-5col">
+    <div class="item-name grid-span-2">
+      <h4
+        class="rollable"
+        data-roll="{{formula}}"
+        data-roll-type="skill"
+        data-skill="{{@key}}"
+      >
+        {{@key}}
+      </h4>
+    </div>
+    <div>
+      <input
+        disabled
+        name="data.skills.{{@key}}.baseValue"
+        value="{{baseValue}}"
+        data-dtype="Number"
+      />
+    </div>
+    <div>
+      <input
+        name="data.skills.{{@key}}.points"
+        value="{{points}}"
+        data-dtype="Number"
+      />
+    </div>
+    <div>
+      <input
+        name="data.skills.{{@key}}.value"
+        value="{{value}}"
+        data-dtype="Number"
+      />
     </div>
   </li>
   {{/each}}

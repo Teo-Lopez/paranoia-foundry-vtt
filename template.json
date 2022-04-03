@@ -50,146 +50,254 @@
       "skills": {
         "ancientBladeWeapons": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.ancientBladeWeapons.value",
           "attribute": "agility"
         },
         "energyBlade": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.energyBlade.value",
           "attribute": "agility"
         },
         "grenades": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.grenades.value",
           "attribute": "agility"
         },
         "neuroWhip": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.neuroWhip.value",
           "attribute": "agility"
         },
         "fightBaton": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.fightBaton.value",
           "attribute": "agility"
         },
         "charm": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.charm.value",
           "attribute": "cynicism"
         },
         "charlatanery": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.charlatanery.value",
           "attribute": "cynicism"
         },
         "lying": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.lying.value",
           "attribute": "cynicism"
         },
         "forgery": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.forgery.value",
           "attribute": "cynicism"
         },
         "interrogation": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.interrogation.value",
           "attribute": "cynicism"
         },
         "intimidation": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.intimidation.value",
           "attribute": "cynicism"
         },
         "falseLogic": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.falseLogic.value",
           "attribute": "cynicism"
         },
         "oratory": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.oratory.value",
           "attribute": "cynicism"
         },
         "psychology": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.psychology.value",
           "attribute": "cynicism"
         },
         "bribery": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.bribery.value",
           "attribute": "cynicism"
         },
         "suggestion": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.suggestion.value",
           "attribute": "cynicism"
         },
         "ancientThrowWeapons": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.ancientThrowWeapons.value",
           "attribute": "dexterity"
         },
         "projectilEnergyLaserWar": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.projectilEnergyLaserWar.value",
           "attribute": "dexterity"
         },
         "vehicleWeapons": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.vehicleWeapons.value",
           "attribute": "dexterity"
         },
         "warVehicleWeapons": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.warVehicleWeapons.value",
           "attribute": "dexterity"
         },
         "missiles": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.missiles.value",
           "attribute": "dexterity"
         },
         "mechanics": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.mechanics.value",
           "attribute": "mechanics"
         },
         "engineering": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.engineering.value",
           "attribute": "mechanics"
         },
         "robotics": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.robotics.value",
           "attribute": "mechanics"
         },
         "dataAnalysis": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.dataAnalysis.value",
           "attribute": "perception"
         },
         "bioEngineering": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.bioEngineering.value",
           "attribute": "perception"
         },
         "bioChemistry": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.bioChemistry.value",
           "attribute": "perception"
         },
         "dataSearch": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.dataSearch.value",
           "attribute": "perception"
         },
         "demolition": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.demolition.value",
           "attribute": "perception"
         },
         "nuclearPhysics": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.nuclearPhysics.value",
           "attribute": "perception"
         },
         "mechanicEngineering": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.mechanicEngineering.value",
           "attribute": "perception"
         },
         "medicine": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.medicine.value",
           "attribute": "perception"
         },
         "chemistry": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.chemistry.value",
           "attribute": "perception"
         },
         "security": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.security.value",
           "attribute": "perception"
         },
         "survival": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.survival.value",
           "attribute": "perception"
         },
         "surveillance": {
           "value": 0,
+          "baseValue": 0,
+          "points": 0,
+          "formula": "1d20ms < @skills.surveillance.value",
           "attribute": "perception"
         }
       },

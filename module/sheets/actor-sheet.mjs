@@ -46,12 +46,12 @@ export class ParanoiaActorSheet extends ActorSheet {
     // Add the actor's data to context.data for easier access, as well as flags.
     context.data = actorData.data
     context.flags = actorData.flags
-
     // Prepare character data and items.
     if (actorData.type == 'character') {
       this._prepareItems(context)
       this._prepareCharacterData(context)
     }
+    console.log(context)
 
     // Prepare NPC data and items.
     if (actorData.type == 'npc') {
@@ -200,7 +200,6 @@ export class ParanoiaActorSheet extends ActorSheet {
     event.preventDefault()
     const element = event.currentTarget
     const dataset = element.dataset
-
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -212,8 +211,12 @@ export class ParanoiaActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
+      console.log(dataset.roll)
       let label = dataset.label ? `[Attribute] ${dataset.label}` : ''
-      let roll = new Roll(dataset.roll, this.actor.getRollData())
+      let roll = new Roll(
+        dataset.roll.replaceAll(' ', ''),
+        this.actor.getRollData()
+      )
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
