@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 /* Global styles */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-.rollable:hover, .rollable:focus {
+.rollable:hover,
+.rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
   cursor: pointer;
@@ -232,7 +233,7 @@
 }
 
 .paranoia .item-form {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .paranoia .sheet-header {
@@ -363,7 +364,8 @@
   display: flex;
 }
 
-.paranoia .items-list .item-name h3, .paranoia .items-list .item-name h4 {
+.paranoia .items-list .item-name h3,
+.paranoia .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
@@ -460,4 +462,13 @@
 
 .paranoia .effects .item .effect-controls {
   border: none;
+}
+
+.paranoia .item .item-data {
+  text-align: center;
+  padding-left: 2px;
+}
+
+.grid-order-1 {
+  order: 1;
 }

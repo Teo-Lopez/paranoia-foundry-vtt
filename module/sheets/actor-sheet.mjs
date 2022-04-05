@@ -90,31 +90,27 @@ export class ParanoiaActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gear = []
-    const features = []
-    const powers = []
+    const arrays = {
+      item: [],
+      weapon: [],
+      armor: [],
+      skill: [],
+      mutantPower: [],
+    }
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN
-      // Append to gear.
-      if (i.type === 'item' || i.type === 'weapon') {
-        gear.push(i)
-      }
-      // Append to features.
-      else if (i.type === 'skill') {
-        features.push(i)
-      }
-      // Append to spells.
-      else if (i.type === 'mutantPower') {
-        powers[i.data.mutantPower].push(i)
-      }
+      //add to arrays
+      arrays[i.type].push(i)
     }
 
-    // Assign and return
-    context.gear = gear
-    context.features = features
-    context.powers = powers
+    // Assign arrays to context
+    context.gear = arrays.item
+    context.weapons = arrays.weapon
+    context.armors = arrays.armor
+    context.features = arrays.skill
+    context.powers = arrays.mutantPower
   }
 
   /* -------------------------------------------- */
