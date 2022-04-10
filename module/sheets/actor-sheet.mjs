@@ -2,7 +2,6 @@ import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs'
-
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -51,7 +50,6 @@ export class ParanoiaActorSheet extends ActorSheet {
       this._prepareItems(context)
       this._prepareCharacterData(context)
     }
-    console.log(context)
 
     // Prepare NPC data and items.
     if (actorData.type == 'npc') {
@@ -78,6 +76,10 @@ export class ParanoiaActorSheet extends ActorSheet {
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.data.attributes)) {
       v.label = game.i18n.localize(CONFIG.BOILERPLATE.attributes[k]) ?? k
+    }
+    for (let [k, v] of Object.entries(context.data.skills)) {
+      v.label = game.i18n.localize(CONFIG.BOILERPLATE.skills[k]) ?? k
+      console.log(context.data.skills)
     }
   }
 
