@@ -30,37 +30,37 @@
     <div>Puntos invertidos</div>
     <div>Valor final</div>
   </li>
-  {{#each data.skills}}
+  {{#each data.skills as |skill|}}
   <li class="item grid grid-5col">
     <div class="item-name grid-span-2">
       <h4
         class="rollable"
-        data-roll="{{formula}}"
+        data-roll="{{skill.formula}}"
         data-roll-type="skill"
         data-skill="{{@key}}"
       >
-        {{@key}}
+        {{skill.label}}
       </h4>
     </div>
     <div>
       <input
         disabled
         name="data.skills.{{@key}}.baseValue"
-        value="{{baseValue}}"
+        value="{{skill.baseValue}}"
         data-dtype="Number"
       />
     </div>
     <div>
       <input
         name="data.skills.{{@key}}.points"
-        value="{{points}}"
+        value="{{skill.points}}"
         data-dtype="Number"
       />
     </div>
     <div>
       <input
         name="data.skills.{{@key}}.value"
-        value="{{value}}"
+        value="{{skill.value}}"
         data-dtype="Number"
       />
     </div>

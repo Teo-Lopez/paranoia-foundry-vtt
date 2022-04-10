@@ -1,9 +1,5 @@
-const abilityMods = [
-  0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5,
-]
-const damageAndResistanceMods = [
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
-]
+import { abilityMods } from '../constants/abilityMods.js'
+import { damageAndResistanceMods } from '../constants/damageAndResistanceMods.js'
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
@@ -63,6 +59,7 @@ export class ParanoiaActor extends Actor {
   _calcSkillsValues(actorData) {
     const data = actorData.data
     for (let [_skillName, skill] of Object.entries(data.skills)) {
+      console.log(skill, 'debugeo')
       skill.baseValue = data.attributes[skill.attribute].mod
       skill.value = skill.baseValue + skill.points
     }
