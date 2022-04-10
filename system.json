@@ -76,14 +76,6 @@
       "type": "JournalEntry"
     },
     {
-      "name": "powers",
-      "label": "Poderes Mutantes",
-      "system": "paranoia",
-      "path": "./packs/mutantPowers.db",
-      "entity": "JournalEntry",
-      "type": "JournalEntry"
-    },
-    {
       "name": "rollableTables",
       "label": "Tablas",
       "system": "paranoia",

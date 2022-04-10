@@ -313,6 +313,9 @@
       "resistance": 0,
       "sc": {
         "value": "Infrarojo"
+      },
+      "mutantPower": {
+        "value": ""
       }
     },
     "npc": {
