@@ -86,10 +86,9 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="description">Biografia/Descripción</a>
     <a class="item" data-tab="skills">Habilidades</a>
     <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="powers">Poderes mutantes</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -104,7 +103,9 @@
               <label
                 for="data.attributes.{{key}}.value"
                 class="resource-label rollable flexlarge align-left"
+                data-roll-type="attribute"
                 data-roll="1d20ms<(@attributes.{{key}}.value)"
+                data-roll-dif="1d20ms<(@attributes.{{key}}.value/4)"
                 data-label="{{attribute.label}}"
                 >{{attribute.label}}</label
               >

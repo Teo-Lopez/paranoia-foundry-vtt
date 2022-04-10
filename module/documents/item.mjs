@@ -1,5 +1,9 @@
-import { isItem, isWeapon, showDialog } from '../../utils/index.js'
-import { damageTable } from '../constants/damageTable.js'
+import {
+  getStringDamageResult,
+  isItem,
+  isWeapon,
+  showDialog,
+} from '../../utils/index.js'
 
 /**
  * Extend the basic Item with some very simple modifications.
@@ -33,15 +37,11 @@ export class ParanoiaItem extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  async roll() {
+  roll(data, event) {
     const item = this.data
-
-    // Initialize chat data.
-
+    console.log(data, event)
     try {
-      const roll = await this._createRoll(item)
-
-      return roll
+      return this._createRoll(item)
     } catch (error) {
       console.error(error)
       ChatMessage.create({
@@ -52,11 +52,8 @@ export class ParanoiaItem extends Item {
       })
       return
     }
-    // If you need to store the value first, uncomment the next line.
-    // let result = await roll.roll({async: true});
-    // }
   }
-
+  //entry point for rolls
   _createRoll(item) {
     if (isItem(item)) {
       return this._rollNormalFormula(item)
@@ -108,24 +105,23 @@ export class ParanoiaItem extends Item {
   }
 
   async _rollDamageRoll(item, resistance, armor) {
-    const roll = new Roll('1d20')
-    let result = await roll.roll({ async: true })
+    const rollEntity = new Roll('1d20')
+    let resultRoll = await rollEntity.roll({ async: true })
     let baseDamage = item.data.damage - (resistance + armor)
     if (baseDamage <= 0)
-      return this._showRollMessage(`[${item.type}] ${item.name} - SE`, roll)
+      return this._showRollMessage(
+        `[${item.type}] ${item.name} - SE`,
+        rollEntity
+      )
     else {
-      const damageRow = Object.entries(damageTable[item.data.damage])
-      let finalDamage = damageRow.reduce((acc, [key, value]) => {
-        if (value <= result.total) return key
-        else return acc
-      }, 'SE')
+      const damageText = getStringDamageResult(item.data.damage, resultRoll)
 
       this._showRollMessage(
-        `[${item.type}] ${item.name} - ${finalDamage}`,
-        roll
+        `[${item.type}] ${item.name} - ${damageText}`,
+        rollEntity
       )
 
-      return roll
+      return rollEntity
     }
   }
 

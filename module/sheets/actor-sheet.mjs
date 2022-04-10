@@ -1,3 +1,4 @@
+import { showDialog } from '../../utils/index.js'
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
@@ -196,6 +197,7 @@ export class ParanoiaActorSheet extends ActorSheet {
    */
   _onRoll(event) {
     event.preventDefault()
+    const { shiftKey } = event
     const element = event.currentTarget
     const dataset = element.dataset
     // Handle item rolls.
@@ -207,20 +209,46 @@ export class ParanoiaActorSheet extends ActorSheet {
       }
     }
 
+    if (shiftKey && dataset.rollType === 'attribute') {
+      return this._rollFromFormula(dataset, 'rollDif')
+    }
+
+    if (shiftKey && dataset.rollType === 'skill') {
+      return showDialog({
+        title: 'Tirada de habilidad',
+        content: '¿Qué dificultad tiene esta tirada?',
+        buttons: {
+          difficult: {
+            label: 'Dificil',
+            callback: () => this._rollFromFormula(dataset, 'rollDif'),
+          },
+          veryDifficult: {
+            label: 'Muy dificil',
+            callback: () => this._rollFromFormula(dataset, 'rollVeryDif'),
+          },
+        },
+        default: 'difficult',
+      })
+    }
+
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      console.log(dataset.roll)
-      let label = dataset.label ? `[Attribute] ${dataset.label}` : ''
-      let roll = new Roll(
-        dataset.roll.replaceAll(' ', ''),
-        this.actor.getRollData()
-      )
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      })
-      return roll
+      console.log(dataset)
+      return this._rollFromFormula(dataset)
     }
+  }
+
+  _rollFromFormula(dataset, difficulty = 'roll') {
+    let label = dataset.label ? `[${dataset.rollType}] ${dataset.label}` : ''
+    let roll = new Roll(
+      dataset[difficulty].replaceAll(' ', ''),
+      this.actor.getRollData()
+    )
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get('core', 'rollMode'),
+    })
+    return roll
   }
 }

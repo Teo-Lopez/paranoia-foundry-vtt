@@ -22,22 +22,24 @@
 </ol> -->
 
 <ol class="items-list">
-  <li class="item grid grid-5col">
-    <div class="item-name grid-span-2">
-      <h4>Habilidad</h4>
-    </div>
-    <div>Valor base</div>
-    <div>Puntos invertidos</div>
-    <div>Valor final</div>
+  <li class="item item-headers grid grid-5col">
+    <h4 class="item-name grid-span-2">Habilidad</h4>
+    <p>Valor base</p>
+    <p>Puntos</p>
+    <p>Valor final</p>
   </li>
+  <hr />
   {{#each data.skills as |skill|}}
   <li class="item grid grid-5col">
     <div class="item-name grid-span-2">
       <h4
-        class="rollable"
-        data-roll="{{skill.formula}}"
+        class="rollable center-text"
+        data-roll="1d20ms<{{skill.value}}"
+        data-roll-dif="1d20ms<({{skill.value}}/2)"
+        data-roll-very-dif="1d20ms<({{skill.value}}/4)"
         data-roll-type="skill"
         data-skill="{{@key}}"
+        data-label="{{skill.label}}"
       >
         {{skill.label}}
       </h4>
@@ -45,6 +47,7 @@
     <div>
       <input
         disabled
+        class="center-text"
         name="data.skills.{{@key}}.baseValue"
         value="{{skill.baseValue}}"
         data-dtype="Number"
@@ -52,18 +55,14 @@
     </div>
     <div>
       <input
+        type="number"
+        class="center-text"
         name="data.skills.{{@key}}.points"
         value="{{skill.points}}"
         data-dtype="Number"
       />
     </div>
-    <div>
-      <input
-        name="data.skills.{{@key}}.value"
-        value="{{skill.value}}"
-        data-dtype="Number"
-      />
-    </div>
+    <span class="center-text">{{skill.value}}</span>
   </li>
   {{/each}}
 </ol>
