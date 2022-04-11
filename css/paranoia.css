@@ -292,7 +292,7 @@
 .paranoia .sheet-body,
 .paranoia .sheet-body .tab,
 .paranoia .sheet-body .tab .editor {
-  height: 75%;
+  height: 100%;
 }
 
 .paranoia .tox .tox-editor-container {
@@ -492,4 +492,28 @@
 
 .center-text {
   text-align: center !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.container {
+  padding: 0 8px;
+}
+
+.critical-roll {
+  line-height: 32px;
+  display: inherit;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.critical-roll.success {
+  color: green;
+}
+
+.critical-roll.fail {
+  color: red;
 }

@@ -238,17 +238,31 @@ export class ParanoiaActorSheet extends ActorSheet {
     }
   }
 
-  _rollFromFormula(dataset, difficulty = 'roll') {
+  async _rollFromFormula(dataset, difficulty = 'roll') {
     let label = dataset.label ? `[${dataset.rollType}] ${dataset.label}` : ''
     let roll = new Roll(
       dataset[difficulty].replaceAll(' ', ''),
       this.actor.getRollData()
     )
+    await roll.roll({ async: true })
+    const numberRolled = roll.dice[0].results[0].result
+    let flavor
+    if (numberRolled === 1) {
+      flavor =
+        '<span class="center-text critical-roll success">ÉXITO CRÍTICO</span>'
+    } else if (numberRolled === 20) {
+      flavor =
+        '<span class="center-text critical-roll fail">FALLO CRÍTICO</span>'
+    } else {
+      flavor = label
+    }
+
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label,
+      flavor,
       rollMode: game.settings.get('core', 'rollMode'),
     })
+
     return roll
   }
 }
