@@ -1,9 +1,9 @@
 {
   "name": "paranoia",
   "title": "Paranoia, roleplaying game",
-  "description": "To be done!",
+  "description": "Proof of concept of Paranoia RolePlaying game",
   "version": "1.0.0",
-  "minimumCoreVersion": "0.8.6",
+  "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9",
   "author": "Teodoro Lopez",
   "esmodules": ["module/paranoia.mjs"],
