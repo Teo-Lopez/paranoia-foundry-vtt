@@ -104,7 +104,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/Teo-Lopez/paranoia-foundry-vtt",
-  "manifest": "https://github.com/Teo-Lopez/paranoia-foundry-vtt/blob/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/Teo-Lopez/paranoia-foundry-vtt/main/system.json",
   "download": "https://github.com/Teo-Lopez/paranoia-foundry-vtt/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
