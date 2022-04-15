@@ -2,7 +2,7 @@
   "name": "paranoia",
   "title": "Paranoia, roleplaying game",
   "description": "To be done!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "9",
   "author": "Teodoro Lopez",
@@ -82,12 +82,20 @@
       "path": "./packs/rollableTables.db",
       "entity": "RollTable",
       "type": "RollTable"
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "system": "paranoia",
+      "path": "./packs/macros.db",
+      "entity": "Macro",
+      "type": "Macro"
     }
   ],
   "languages": [
     {
       "lang": "es",
-      "name": "Espanish",
+      "name": "Spanish",
       "path": "lang/es.json"
     }
   ],

@@ -20,18 +20,22 @@
     </li>
   {{/each}}
 </ol> -->
-
+<p class="totalSkillPoints totalSkillPoints-{{data.skillPoints.className}}">
+  Puntos invertidos:
+  <span>{{data.skillPoints.value}}</span>
+</p>
+<p>El máximo de puntos a repartir es: <span>{{data.skillPoints.max}}</span></p>
 <ol class="items-list">
-  <li class="item item-headers grid grid-5col bold center-text">
-    <h4 class="grid-span-2">Habilidad</h4>
+  <li class="item item-headers grid grid-6col bold center-text">
+    <h4 class="grid-span-3">Habilidad</h4>
+    <p>Valor final</p>
     <p>Valor base</p>
     <p>Puntos</p>
-    <p>Valor final</p>
   </li>
   <hr />
   {{#each data.skills as |skill|}}
-  <li class="item grid grid-5col">
-    <div class="item-name grid-span-2">
+  <li class="item grid grid-6col">
+    <div class="item-name grid-span-3">
       <h4
         class="rollable center-text"
         data-roll="1d20ms<{{skill.value}}"
@@ -44,6 +48,7 @@
         {{skill.label}}
       </h4>
     </div>
+    <span class="center-text bold">{{skill.value}}</span>
     <div>
       <input
         disabled
@@ -55,14 +60,14 @@
     </div>
     <div>
       <input
+        step="any"
         type="number"
-        class="center-text"
+        class="center-text  {{skill.className}}"
         name="data.skills.{{@key}}.points"
         value="{{skill.points}}"
         data-dtype="Number"
       />
     </div>
-    <span class="center-text bold">{{skill.value}}</span>
   </li>
   {{/each}}
 </ol>

@@ -21,7 +21,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use, use
       both the "grid" and "grid-Ncol" class where "N" can be any number from 1
       to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-4col">
         {{!-- "flex-group-center" is also defined in the _grid.scss file and it
         will add a small amount of padding, a border, and will center all of its
         child elements content and text. --}}
@@ -29,14 +29,14 @@
           <label for="data.wounds.value" class="resource-label">Heridas</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input
-              type="text"
+              type="number"
               name="data.wounds.value"
               value="{{data.wounds.value}}"
               data-dtype="Number"
             />
             <span> / </span>
             <input
-              type="text"
+              type="number"
               name="data.wounds.max"
               value="{{data.wounds.max}}"
               data-dtype="Number"
@@ -46,35 +46,47 @@
 
         <div class="resource flex-group-center">
           <label for="data.cloneNumber.value" class="resource-label"
-            >Número de clon</label
+            >Nº Clon</label
           >
           <div class="resource-content flexrow flex-center flex-between">
             <input
-              type="text"
+              type="number"
               name="data.cloneNumber.value"
               value="{{data.cloneNumber.value}}"
-              data-dtype="Number"
-            />
-            <span> / </span>
-            <input
-              type="text"
-              name="data.cloneNumber.max"
-              value="{{data.cloneNumber.max}}"
               data-dtype="Number"
             />
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.sc.value" class="resource-label"
-            >Código de Seguridad</label
+          <label for="data.cloneNumber.value" class="resource-label"
+            >Poder Restante</label
           >
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="number"
+              name="data.mutantPower.value"
+              value="{{data.mutantPower.value}}"
+              data-dtype="Number"
+            />
+            <span> / </span>
+            <input
+              type="number"
+              name="data.mutantPower.max"
+              value="{{data.mutantPower.max}}"
+              data-dtype="Number"
+            />
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="data.sc.value" class="resource-label">CS</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input
               type="text"
               name="data.sc.value"
               value="{{data.sc.value}}"
-              data-dtype="Text"
+              data-dtype="String"
             />
           </div>
         </div>
@@ -86,9 +98,9 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Biografia/Descripción</a>
     <a class="item" data-tab="skills">Habilidades</a>
     <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="description">Biografia/Descripción</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -107,10 +119,10 @@
                 data-roll="1d20ms<(@attributes.{{key}}.value)"
                 data-roll-dif="1d20ms<(@attributes.{{key}}.value/4)"
                 data-label="{{attribute.label}}"
-                >{{attribute.label}}</label
+                >{{localize attribute.label}}</label
               >
               <input
-                type="text"
+                type="number"
                 name="data.attributes.{{key}}.value"
                 value="{{attribute.value}}"
                 data-dtype="Number"
@@ -166,7 +178,7 @@
                 name="data.secret_society"
                 type="text"
                 value="{{data.secret_society}}"
-                data-dtype="Text"
+                data-dtype="String"
               />
             </div>
             <div class="flexrow">
@@ -186,17 +198,27 @@
                 name="data.service"
                 type="text"
                 value="{{data.service}}"
-                data-dtype="Text"
+                data-dtype="String"
               />
             </div>
             <div class="flexrow">
               <p>Poder mutante</p>
               <input
                 class="ability-mod"
-                name="data.mutantPower.value"
+                name="data.mutantPower.name"
                 type="text"
-                value="{{data.mutantPower.value}}"
-                data-dtype="Text"
+                value="{{data.mutantPower.name}}"
+                data-dtype="String"
+              />
+            </div>
+            <div class="flexrow">
+              <p>Creditos</p>
+              <input
+                class="ability-mod"
+                name="data.credits"
+                type="text"
+                value="{{data.credits}}"
+                data-dtype="Number"
               />
             </div>
           </section>

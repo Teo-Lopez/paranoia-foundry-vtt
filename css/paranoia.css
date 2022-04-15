@@ -498,11 +498,11 @@
   font-weight: bold;
 }
 
-.container {
+.paranoia .container {
   padding: 0 8px;
 }
 
-.critical-roll {
+.paranoia .critical-roll {
   line-height: 32px;
   display: inherit;
   font-size: 1.2em;
@@ -510,10 +510,35 @@
   letter-spacing: 1.5px;
 }
 
-.critical-roll.success {
+.paranoia .critical-roll.success {
   color: green;
 }
 
-.critical-roll.fail {
+.paranoia .critical-roll.fail {
+  color: red;
+}
+
+.paranoia .totalSkillPoints span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.paranoia .totalSkillPoints-success span {
+  color: green;
+}
+
+.paranoia .totalSkillPoints-error span {
+  color: red;
+}
+
+.paranoia .totalSkillPoints-success + p {
+  display: none;
+}
+
+.paranoia .success {
+  color: green;
+}
+
+.paranoia .error {
   color: red;
 }

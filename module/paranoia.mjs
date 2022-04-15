@@ -7,7 +7,6 @@ import { ParanoiaItemSheet } from './sheets/item-sheet.mjs'
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs'
 import { BOILERPLATE } from './helpers/config.mjs'
-
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -22,8 +21,7 @@ Hooks.once('init', async () => {
   }
 
   // Add custom constants for configuration.
-  CONFIG.BOILERPLATE = BOILERPLATE
-
+  CONFIG.PARANOIA = BOILERPLATE
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -71,6 +69,8 @@ Handlebars.registerHelper('toLowerCase', function (str) {
 /* -------------------------------------------- */
 
 Hooks.once('ready', async function () {
+  await game.i18n.setLanguage('es')
+
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
 })

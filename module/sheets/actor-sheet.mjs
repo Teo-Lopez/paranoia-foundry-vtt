@@ -76,11 +76,10 @@ export class ParanoiaActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Handle ability scores.
     for (let [k, v] of Object.entries(context.data.attributes)) {
-      v.label = game.i18n.localize(CONFIG.BOILERPLATE.attributes[k]) ?? k
+      v.label = game.i18n.localize(CONFIG.PARANOIA.attributes[k]) ?? k
     }
     for (let [k, v] of Object.entries(context.data.skills)) {
-      v.label = game.i18n.localize(CONFIG.BOILERPLATE.skills[k]) ?? k
-      console.log(context.data.skills)
+      v.label = game.i18n.localize(CONFIG.PARANOIA.skills[k]) ?? k
     }
   }
 
@@ -233,7 +232,6 @@ export class ParanoiaActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      console.log(dataset)
       return this._rollFromFormula(dataset)
     }
   }

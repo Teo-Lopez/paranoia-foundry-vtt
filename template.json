@@ -16,7 +16,7 @@
         "service": "",
         "secret_society": "",
         "favour": 0,
-        "biography": ""
+        "biography": "Breve descripción del personaje"
       }
     },
     "character": {
@@ -46,6 +46,11 @@
         "power": {
           "value": 10
         }
+      },
+      "skillPoints": {
+        "value": 30,
+        "min": 0,
+        "max": 30
       },
       "skills": {
         "ancientBladeWeapons": {
@@ -312,11 +317,14 @@
       "physicalDamage": 0,
       "resistance": 0,
       "sc": {
-        "value": "Infrarojo"
+        "value": "Rojo"
       },
       "mutantPower": {
-        "value": ""
-      }
+        "max": 10,
+        "value": 10,
+        "name": "Mutant Power"
+      },
+      "credits": 100
     },
     "npc": {
       "templates": ["base"],
