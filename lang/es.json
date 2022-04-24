@@ -60,5 +60,12 @@
   "PARANOIA.SkillChemistry": "Química",
   "PARANOIA.SkillSecurity": "Seguridad",
   "PARANOIA.SkillSurvival": "Supervivencia",
-  "PARANOIA.SkillSurveillance": "Vigilancía"
+  "PARANOIA.SkillSurveillance": "Vigilancía",
+
+  "PARANOIA.DamageLabels.SE": "Sin Efecto",
+  "PARANOIA.DamageLabels.A": "Aturdido",
+  "PARANOIA.DamageLabels.H": "Herido",
+  "PARANOIA.DamageLabels.I": "Incosciente",
+  "PARANOIA.DamageLabels.M": "Muerto",
+  "PARANOIA.DamageLabels.V": "Vaporizado"
 }

@@ -74,7 +74,7 @@ export class ParanoiaActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle ability scores.
+    // Add translated labels to skills and attributes.
     for (let [k, v] of Object.entries(context.data.attributes)) {
       v.label = game.i18n.localize(CONFIG.PARANOIA.attributes[k]) ?? k
     }
@@ -96,7 +96,6 @@ export class ParanoiaActorSheet extends ActorSheet {
       item: [],
       weapon: [],
       armor: [],
-      skill: [],
       mutantPower: [],
     }
 

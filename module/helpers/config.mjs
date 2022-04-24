@@ -1,4 +1,4 @@
-export const BOILERPLATE = {
+export const PARANOIA = {
   attributes: {
     strength: 'PARANOIA.AttributeStr',
     constitution: 'PARANOIA.AttributeCon',
@@ -57,5 +57,14 @@ export const BOILERPLATE = {
     security: 'PARANOIA.SkillSecurity',
     survival: 'PARANOIA.SkillSurvival',
     surveillance: 'PARANOIA.SkillSurveillance',
+  },
+
+  damageLabels: {
+    SE: 'PARANOIA.DamageLabels.SE',
+    A: 'PARANOIA.DamageLabels.A',
+    H: 'PARANOIA.DamageLabels.H',
+    I: 'PARANOIA.DamageLabels.I',
+    M: 'PARANOIA.DamageLabels.M',
+    V: 'PARANOIA.DamageLabels.V',
   },
 }

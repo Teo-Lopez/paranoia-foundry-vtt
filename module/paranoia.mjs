@@ -6,7 +6,7 @@ import { ParanoiaActorSheet } from './sheets/actor-sheet.mjs'
 import { ParanoiaItemSheet } from './sheets/item-sheet.mjs'
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs'
-import { BOILERPLATE } from './helpers/config.mjs'
+import { PARANOIA } from './helpers/config.mjs'
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -21,7 +21,7 @@ Hooks.once('init', async () => {
   }
 
   // Add custom constants for configuration.
-  CONFIG.PARANOIA = BOILERPLATE
+  CONFIG.PARANOIA = PARANOIA
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -72,7 +72,10 @@ Hooks.once('ready', async function () {
   await game.i18n.setLanguage('es')
 
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot))
+  Hooks.on('hotbarDrop', (bar, data, slot) => {
+    console.log(data)
+    data.type === 'Item' && createItemMacro(data, slot)
+  })
 })
 
 /* -------------------------------------------- */
@@ -87,7 +90,6 @@ Hooks.once('ready', async function () {
  * @returns {Promise}
  */
 async function createItemMacro(data, slot) {
-  if (data.type !== 'Item') return
   if (!('data' in data))
     return ui.notifications.warn(
       'You can only create macro buttons for owned Items'

@@ -110,11 +110,15 @@ export class ParanoiaItem extends Item {
     let baseDamage = item.data.damage - (resistance + armor)
     if (baseDamage <= 0)
       return this._showRollMessage(
-        `[${item.type}] ${item.name} - SE`,
+        `[${item.type}] ${item.name} - Sin Efecto`,
         rollEntity
       )
     else {
-      const damageText = getStringDamageResult(item.data.damage, resultRoll)
+      const damageText = game.i18n.localize(
+        CONFIG.PARANOIA.damageLabels[
+          getStringDamageResult(item.data.damage, resultRoll)
+        ]
+      )
 
       this._showRollMessage(
         `[${item.type}] ${item.name} - ${damageText}`,
