@@ -78,8 +78,8 @@ export class ParanoiaItem extends Item {
 
   _checkArmorAndResistance(item, rollData) {
     if (
-      resistance in rollData &&
-      armor in rollData &&
+      rollData.resistance !== undefined &&
+      armor !== undefined &&
       Number.isInteger(rollData.resistance) &&
       Number.isInteger(rollData.armor)
     ) {
