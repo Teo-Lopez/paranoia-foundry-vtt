@@ -203,7 +203,16 @@ export class ParanoiaActorSheet extends ActorSheet {
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId
         const item = this.actor.items.get(itemId)
-        if (item) return item.roll()
+        let armor, resistance
+        if (game.user.targets.size > 0) {
+          const targetData = [...game.user.targets][0].actor.data
+          const { items, data } = targetData
+          resistance = data.resistance
+          armor = items.find((item) => item.data.type === 'armor').data.data
+            .value
+        }
+        const rollData = { armor, resistance }
+        if (item) return item.roll(item.data, rollData)
       }
     }
 

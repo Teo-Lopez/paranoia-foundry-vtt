@@ -37,11 +37,10 @@ export class ParanoiaItem extends Item {
    * @param {Event} event   The originating click event
    * @private
    */
-  roll(data, event) {
-    const item = this.data
-    console.log(data, event)
+  roll(item, rollData) {
+    console.log(item, rollData)
     try {
-      return this._createRoll(item)
+      return this._createRoll(item, rollData)
     } catch (error) {
       console.error(error)
       ChatMessage.create({
@@ -54,12 +53,12 @@ export class ParanoiaItem extends Item {
     }
   }
   //entry point for rolls
-  _createRoll(item) {
+  _createRoll(item, rollData) {
     if (isItem(item)) {
       return this._rollNormalFormula(item)
     }
     if (isWeapon(item)) {
-      return this._checkArmorAndResistance(item)
+      return this._checkArmorAndResistance(item, rollData)
     }
   }
 
@@ -78,7 +77,12 @@ export class ParanoiaItem extends Item {
     this._showRollMessage(`[${item.type}] ${item.name}`, roll)
   }
 
-  _checkArmorAndResistance(item) {
+  _checkArmorAndResistance(item, rollData) {
+    if (rollData.resistance && rollData.armor) {
+      this._rollDamageRoll(item, rollData.resistance, rollData.armor)
+      return
+    }
+
     showDialog({
       title: 'Damage Roll',
       content: `
@@ -108,6 +112,7 @@ export class ParanoiaItem extends Item {
     const rollEntity = new Roll('1d20')
     let resultRoll = await rollEntity.roll({ async: true })
     let baseDamage = item.data.damage - (resistance + armor)
+
     if (baseDamage <= 0)
       return this._showRollMessage(
         `[${item.type}] ${item.name} - Sin Efecto`,
@@ -116,7 +121,7 @@ export class ParanoiaItem extends Item {
     else {
       const damageText = game.i18n.localize(
         CONFIG.PARANOIA.damageLabels[
-          getStringDamageResult(item.data.damage, resultRoll)
+          getStringDamageResult(baseDamage, resultRoll)
         ]
       )
 
