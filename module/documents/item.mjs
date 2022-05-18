@@ -38,7 +38,6 @@ export class ParanoiaItem extends Item {
    * @private
    */
   roll(item, rollData) {
-    console.log(item, rollData)
     try {
       return this._createRoll(item, rollData)
     } catch (error) {
@@ -78,7 +77,10 @@ export class ParanoiaItem extends Item {
   }
 
   _checkArmorAndResistance(item, rollData) {
+    console.log(rollData)
     if (rollData.resistance && rollData.armor) {
+      console.log(rollData, 'roll')
+
       this._rollDamageRoll(item, rollData.resistance, rollData.armor)
       return
     }
