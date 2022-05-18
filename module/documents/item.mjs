@@ -77,10 +77,12 @@ export class ParanoiaItem extends Item {
   }
 
   _checkArmorAndResistance(item, rollData) {
-    console.log(rollData)
-    if (rollData.resistance && rollData.armor) {
-      console.log(rollData, 'roll')
-
+    if (
+      resistance in rollData &&
+      armor in rollData &&
+      Number.isInteger(rollData.resistance) &&
+      Number.isInteger(rollData.armor)
+    ) {
       this._rollDamageRoll(item, rollData.resistance, rollData.armor)
       return
     }
