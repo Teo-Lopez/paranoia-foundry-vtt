@@ -4,7 +4,7 @@ import {
   isWeapon,
   showDialog,
 } from '../../utils/index.js'
-
+import { getDamage } from '../constants/healthStatus..js'
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -57,7 +57,7 @@ export class ParanoiaItem extends Item {
       return this._rollNormalFormula(item)
     }
     if (isWeapon(item)) {
-      return this._checkArmorAndResistance(item, rollData)
+      return this._weaponRoll(item, rollData)
     }
   }
 
@@ -75,21 +75,21 @@ export class ParanoiaItem extends Item {
     const roll = new Roll(rollData.item.formula, rollData)
     this._showRollMessage(`[${item.type}] ${item.name}`, roll)
   }
-
-  _checkArmorAndResistance(item, rollData) {
-    if (
+  _hasAllData(rollData) {
+    return (
       rollData.resistance !== undefined &&
       rollData.armor !== undefined &&
       Number.isInteger(rollData.resistance) &&
       Number.isInteger(rollData.armor)
-    ) {
+    )
+  }
+  _weaponRoll(item, rollData) {
+    if (this._hasAllData(rollData)) {
       this._rollDamageRoll(item, rollData.resistance, rollData.armor)
-      return
-    }
-
-    showDialog({
-      title: 'Damage Roll',
-      content: `
+    } else {
+      showDialog({
+        title: 'Damage Roll',
+        content: `
                 <div>
                   <div class="grid">
                     <label>Resistencia del objetivo</label><input value="0" name="resistance"></input>
@@ -98,44 +98,56 @@ export class ParanoiaItem extends Item {
                     <label>Armadura del objetivo</label><input value="0" name="armor"></input>
                   </div>
                 </div>`,
-      buttons: {
-        armor: {
-          label: 'Tirar',
-          callback: (html) => {
-            const armor = $(html).find('[name=resistance]').val()
-            const resistance = $(html).find('[name=armor]').val()
-            this._rollDamageRoll(item, resistance, armor)
+        buttons: {
+          armor: {
+            label: 'Tirar',
+            callback: (html) => {
+              const armor = $(html).find('[name=resistance]').val()
+              const resistance = $(html).find('[name=armor]').val()
+              this._rollDamageRoll(item, resistance, armor)
+            },
           },
         },
-      },
-      default: 'Tirar',
-    })
+        default: 'Tirar',
+      })
+    }
   }
 
   async _rollDamageRoll(item, resistance, armor) {
-    const rollEntity = new Roll('1d20')
-    let resultRoll = await rollEntity.roll({ async: true })
-    let baseDamage = item.data.damage - (resistance + armor)
+    const skill = this.getRollData().skills[item.data.skill]
+    const numberToBeat = skill.value
 
-    if (baseDamage <= 0)
-      return this._showRollMessage(
-        `[${item.type}] ${item.name} - Sin Efecto`,
-        rollEntity
-      )
-    else {
-      const damageText = game.i18n.localize(
-        CONFIG.PARANOIA.damageLabels[
-          getStringDamageResult(baseDamage, resultRoll)
-        ]
-      )
+    const rollEntity = new Roll(skill.formula, {
+      skills: { projectilEnergyLaserWar: { value: numberToBeat } },
+    })
 
-      this._showRollMessage(
-        `[${item.type}] ${item.name} - ${damageText}`,
-        rollEntity
-      )
+    const rollResult = await rollEntity.roll({ async: true })
+    const successMargin = rollResult.total
 
-      return rollEntity
-    }
+    let [damage, damageString] = getDamage(
+      item.data.damage,
+      resistance,
+      armor,
+      successMargin
+    )
+
+    return this._showRollMessage(
+      `[${item.type}] ${item.name} - El oponente está ${damageString}`,
+      rollEntity
+    )
+
+    // const damageText = game.i18n.localize(
+    //   CONFIG.PARANOIA.damageLabels[
+    //     getStringDamageResult(baseDamage, resultRoll)
+    //   ]
+    // )
+
+    // this._showRollMessage(
+    //   `[${item.type}] ${item.name} - ${damageText}`,
+    //   rollEntity
+    // )
+
+    // return rollEntity
   }
 
   _showRollMessage(label, roll) {
