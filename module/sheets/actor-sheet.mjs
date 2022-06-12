@@ -1,8 +1,8 @@
-import { showDialog } from '../../utils/index.js'
+import { showDialog } from "../../utils/index.js";
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
-} from '../helpers/effects.mjs'
+} from "../helpers/effects.mjs";
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
@@ -11,23 +11,23 @@ export class ParanoiaActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ['paranoia', 'sheet', 'actor'],
-      template: 'systems/paranoia/templates/actor/actor-sheet.html',
+      classes: ["paranoia", "sheet", "actor"],
+      template: "systems/paranoia/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [
         {
-          navSelector: '.sheet-tabs',
-          contentSelector: '.sheet-body',
-          initial: 'features',
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "features",
         },
       ],
-    })
+    });
   }
 
   /** @override */
   get template() {
-    return `systems/paranoia/templates/actor/actor-${this.actor.data.type}-sheet.html`
+    return `systems/paranoia/templates/actor/actor-${this.actor.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -38,32 +38,32 @@ export class ParanoiaActorSheet extends ActorSheet {
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
     // editable, the items array, and the effects array.
-    const context = super.getData()
+    const context = super.getData();
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false)
+    const actorData = this.actor.data.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data
-    context.flags = actorData.flags
+    context.data = actorData.data;
+    context.flags = actorData.flags;
     // Prepare character data and items.
-    if (actorData.type == 'character') {
-      this._prepareItems(context)
-      this._prepareCharacterData(context)
+    if (actorData.type == "character") {
+      this._prepareItems(context);
+      this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
-      this._prepareItems(context)
+    if (actorData.type == "npc") {
+      this._prepareItems(context);
     }
 
     // Add roll data for TinyMCE editors.
-    context.rollData = context.actor.getRollData()
+    context.rollData = context.actor.getRollData();
 
     // Prepare active effects
-    context.effects = prepareActiveEffectCategories(this.actor.effects)
+    context.effects = prepareActiveEffectCategories(this.actor.effects);
 
-    return context
+    return context;
   }
 
   /**
@@ -76,11 +76,17 @@ export class ParanoiaActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Add translated labels to skills and attributes.
     for (let [k, v] of Object.entries(context.data.attributes)) {
-      v.label = game.i18n.localize(CONFIG.PARANOIA.attributes[k]) ?? k
+      v.label = game.i18n.localize(CONFIG.PARANOIA.attributes[k]) ?? k;
     }
-    for (let [k, v] of Object.entries(context.data.skills)) {
-      v.label = game.i18n.localize(CONFIG.PARANOIA.skills[k]) ?? k
-    }
+    // for (let [k, v] of Object.entries(context.data.skills)) {
+    //   v.label = game.i18n.localize(CONFIG.PARANOIA.skills[k]) ?? k;
+    // }
+
+    // for (key in context.data.skillsByGroup) {
+    //   for (let [k, v] of Object.entries(context.data.skillsByGroup[key])) {
+    //     v.label = game.i18n.localize(CONFIG.PARANOIA.skills[k]) ?? k;
+    //   }
+    // }
   }
 
   /**
@@ -97,67 +103,67 @@ export class ParanoiaActorSheet extends ActorSheet {
       weapon: [],
       armor: [],
       mutantPower: [],
-    }
+    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN
+      i.img = i.img || DEFAULT_TOKEN;
       //add to arrays
-      arrays[i.type].push(i)
+      arrays[i.type].push(i);
     }
 
     // Assign arrays to context
-    context.gear = arrays.item
-    context.weapons = arrays.weapon
-    context.armors = arrays.armor
-    context.features = arrays.skill
-    context.powers = arrays.mutantPower
+    context.gear = arrays.item;
+    context.weapons = arrays.weapon;
+    context.armors = arrays.armor;
+    context.features = arrays.skill;
+    context.powers = arrays.mutantPower;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
   activateListeners(html) {
-    super.activateListeners(html)
+    super.activateListeners(html);
 
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.find('.item-edit').click((ev) => {
-      const li = $(ev.currentTarget).parents('.item')
-      const item = this.actor.items.get(li.data('itemId'))
-      item.sheet.render(true)
-    })
+    html.find(".item-edit").click((ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.sheet.render(true);
+    });
 
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return
+    if (!this.isEditable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this))
+    html.find(".item-create").click(this._onItemCreate.bind(this));
 
     // Delete Inventory Item
-    html.find('.item-delete').click((ev) => {
-      const li = $(ev.currentTarget).parents('.item')
-      const item = this.actor.items.get(li.data('itemId'))
-      item.delete()
-      li.slideUp(200, () => this.render(false))
-    })
+    html.find(".item-delete").click((ev) => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
 
     // Active Effect management
     html
-      .find('.effect-control')
-      .click((ev) => onManageActiveEffect(ev, this.actor))
+      .find(".effect-control")
+      .click((ev) => onManageActiveEffect(ev, this.actor));
 
     // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this))
+    html.find(".rollable").click(this._onRoll.bind(this));
 
     // Drag events for macros.
     if (this.actor.isOwner) {
-      let handler = (ev) => this._onDragStart(ev)
-      html.find('li.item').each((i, li) => {
-        if (li.classList.contains('inventory-header')) return
-        li.setAttribute('draggable', true)
-        li.addEventListener('dragstart', handler, false)
-      })
+      let handler = (ev) => this._onDragStart(ev);
+      html.find("li.item").each((i, li) => {
+        if (li.classList.contains("inventory-header")) return;
+        li.setAttribute("draggable", true);
+        li.addEventListener("dragstart", handler, false);
+      });
     }
   }
 
@@ -167,25 +173,25 @@ export class ParanoiaActorSheet extends ActorSheet {
    * @private
    */
   async _onItemCreate(event) {
-    event.preventDefault()
-    const header = event.currentTarget
+    event.preventDefault();
+    const header = event.currentTarget;
     // Get the type of item to create.
-    const type = header.dataset.type
+    const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset)
+    const data = duplicate(header.dataset);
     // Initialize a default name.
-    const name = `New ${type.capitalize()}`
+    const name = `New ${type.capitalize()}`;
     // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
       data: data,
-    }
+    };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data['type']
+    delete itemData.data["type"];
 
     // Finally, create the item!
-    return await Item.create(itemData, { parent: this.actor })
+    return await Item.create(itemData, { parent: this.actor });
   }
 
   /**
@@ -194,81 +200,81 @@ export class ParanoiaActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
-    event.preventDefault()
-    const { shiftKey } = event
-    const element = event.currentTarget
-    const dataset = element.dataset
+    event.preventDefault();
+    const { shiftKey } = event;
+    const element = event.currentTarget;
+    const dataset = element.dataset;
     // Handle item rolls.
     if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
-        const itemId = element.closest('.item').dataset.itemId
-        const item = this.actor.items.get(itemId)
-        let armor, resistance
+      if (dataset.rollType == "item") {
+        const itemId = element.closest(".item").dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        let armor, resistance;
         if (game.user.targets.size > 0) {
-          const targetData = [...game.user.targets][0].actor.data
-          const { items, data } = targetData
-          resistance = data.resistance
-          armor = items.find((item) => item.data.type === 'armor').data.data
-            .value
+          const targetData = [...game.user.targets][0].actor.data;
+          const { items, data } = targetData;
+          resistance = data.resistance;
+          armor = items.find((item) => item.data.type === "armor").data.data
+            .value;
         }
-        const rollData = { armor, resistance }
-        if (item) return item.roll(item.data, rollData)
+        const rollData = { armor, resistance };
+        if (item) return item.roll(item.data, rollData);
       }
     }
 
-    if (shiftKey && dataset.rollType === 'attribute') {
-      return this._rollFromFormula(dataset, 'rollDif')
+    if (shiftKey && dataset.rollType === "attribute") {
+      return this._rollFromFormula(dataset, "rollDif");
     }
 
-    if (shiftKey && dataset.rollType === 'skill') {
+    if (shiftKey && dataset.rollType === "skill") {
       return showDialog({
-        title: 'Tirada de habilidad',
-        content: '¿Qué dificultad tiene esta tirada?',
+        title: "Tirada de habilidad",
+        content: "¿Qué dificultad tiene esta tirada?",
         buttons: {
           difficult: {
-            label: 'Dificil',
-            callback: () => this._rollFromFormula(dataset, 'rollDif'),
+            label: "Dificil",
+            callback: () => this._rollFromFormula(dataset, "rollDif"),
           },
           veryDifficult: {
-            label: 'Muy dificil',
-            callback: () => this._rollFromFormula(dataset, 'rollVeryDif'),
+            label: "Muy dificil",
+            callback: () => this._rollFromFormula(dataset, "rollVeryDif"),
           },
         },
-        default: 'difficult',
-      })
+        default: "difficult",
+      });
     }
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      return this._rollFromFormula(dataset)
+      return this._rollFromFormula(dataset);
     }
   }
 
-  async _rollFromFormula(dataset, difficulty = 'roll') {
-    let label = dataset.label ? `[${dataset.rollType}] ${dataset.label}` : ''
+  async _rollFromFormula(dataset, difficulty = "roll") {
+    let label = dataset.label ? `[${dataset.rollType}] ${dataset.label}` : "";
     let roll = new Roll(
-      dataset[difficulty].replaceAll(' ', ''),
+      dataset[difficulty].replaceAll(" ", ""),
       this.actor.getRollData()
-    )
-    await roll.roll({ async: true })
-    const numberRolled = roll.dice[0].results[0].result
-    let flavor
+    );
+    await roll.roll({ async: true });
+    const numberRolled = roll.dice[0].results[0].result;
+    let flavor;
     if (numberRolled === 1) {
       flavor =
-        '<span class="center-text critical-roll success">ÉXITO CRÍTICO</span>'
+        '<span class="center-text critical-roll success">ÉXITO CRÍTICO</span>';
     } else if (numberRolled === 20) {
       flavor =
-        '<span class="center-text critical-roll fail">FALLO CRÍTICO</span>'
+        '<span class="center-text critical-roll fail">FALLO CRÍTICO</span>';
     } else {
-      flavor = label
+      flavor = label;
     }
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor,
-      rollMode: game.settings.get('core', 'rollMode'),
-    })
+      rollMode: game.settings.get("core", "rollMode"),
+    });
 
-    return roll
+    return roll;
   }
 }

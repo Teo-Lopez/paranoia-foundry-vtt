@@ -48,269 +48,412 @@
         }
       },
       "skillPoints": {
-        "value": 30,
+        "value": 40,
         "min": 0,
-        "max": 30
+        "max": 40
       },
       "skills": {
-        "ancientBladeWeapons": {
+        "interaction": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.ancientBladeWeapons.value",
-          "attribute": "agility"
+          "commonSkills": {
+            "charm": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.charm.value",
+              "type": "interaction"
+            },
+            "charlatanery": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.charlatanery.value",
+              "type": "interaction"
+            },
+            "hygiene": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.hygiene.value",
+              "type": "interaction"
+            },
+            "lying": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.lying.value",
+              "type": "interaction"
+            },
+            "interrogation": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.interrogation.value",
+              "type": "interaction"
+            },
+            "intimidation": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.intimidation.value",
+              "type": "interaction"
+            },
+            "oratory": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.oratory.value",
+              "type": "interaction"
+            },
+            "psychology": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.interaction.commonSkills.psychology.value",
+              "type": "interaction"
+            }
+          }
         },
-        "energyBlade": {
+        "stealth": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.energyBlade.value",
-          "attribute": "agility"
+          "commonSkills": {
+            "follow": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.follow.value",
+              "type": "stealth"
+            },
+            "move_silently": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.move_silently.value",
+              "type": "stealth"
+            },
+            "disguise": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.disguise.value",
+              "type": "stealth"
+            },
+            "sleight_of_hand": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.sleight_of_hand.value",
+              "type": "stealth"
+            },
+            "hide_and_search": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.hide_and_search.value",
+              "type": "stealth"
+            },
+            "walking_radar": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.walking_radar.value",
+              "type": "stealth"
+            },
+            "security": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.security.value",
+              "type": "stealth"
+            },
+            "surveillance": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.stealth.commonSkills.surveillance.value",
+              "type": "stealth"
+            }
+          }
         },
-        "grenades": {
+        "violence": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.grenades.value",
-          "attribute": "agility"
+          "commonSkills": {
+            "agility": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.agility.value",
+              "type": "violence"
+            },
+            "throwing_weapons": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.throwing_weapons.value",
+              "type": "violence"
+            },
+            "campaign_weapons": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.campaign_weapons.value",
+              "type": "violence"
+            },
+            "melee_weapons": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.melee_weapons.value",
+              "type": "violence"
+            },
+            "energetic_weapons": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "isVital": true,
+              "formula": "1d20ms<@skills.violence.commonSkills.energetic_weapons.value",
+              "type": "violence"
+            },
+            "projectile_weapons": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.projectile_weapons.value",
+              "type": "violence"
+            },
+            "artillery": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.artillery.value",
+              "type": "violence"
+            },
+            "unarmed": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.unarmed.value",
+              "type": "violence"
+            },
+            "swift_fingers": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.swift_fingers.value",
+              "type": "violence"
+            },
+            "demolition": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.violence.commonSkills.demolition.value",
+              "type": "violence"
+            }
+          }
         },
-        "neuroWhip": {
+        "hardware": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.neuroWhip.value",
-          "attribute": "agility"
+          "commonSkills": {
+            "equipment": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.equipment.value",
+              "type": "hardware"
+            },
+            "automechanics": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.automechanics.value",
+              "type": "hardware"
+            },
+            "electronic_engineering": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.electronic_engineering.value",
+              "type": "hardware"
+            },
+            "mechanical_engineering": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.mechanical_engineering.value",
+              "type": "hardware"
+            },
+            "environmental_engineering": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.environmental_engineering.value",
+              "type": "hardware"
+            },
+            "nuclear_engineering": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.nuclear_engineering.value",
+              "type": "hardware"
+            },
+            "chemical_engineering": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.chemical_engineering.value",
+              "type": "hardware"
+            },
+            "heavy_machinery": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.heavy_machinery.value",
+              "type": "hardware"
+            },
+            "robotics": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.hardware.commonSkills.robotics.value",
+              "type": "hardware"
+            }
+          }
         },
-        "fight": {
+        "software": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.fight.value",
-          "attribute": "agility"
+          "commonSkills": {
+            "data_analysis": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.data_analysis.value",
+              "type": "software"
+            },
+            "data_search": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.data_search.value",
+              "type": "software"
+            },
+            "cryptography": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.cryptography.value",
+              "type": "software"
+            },
+            "multirecorders": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.multirecorders.value",
+              "type": "software"
+            },
+            "o_bay": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.o_bay.value",
+              "type": "software"
+            },
+            "vehicle_programming": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.vehicle_programming.value",
+              "type": "software"
+            },
+            "robot_programming": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.robot_programming.value",
+              "type": "software"
+            },
+            "cyber_security": {
+              "value": 0,
+              "isSpecialty": { "0": false, "1": false, "2": false },
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.cyber_security.value",
+              "type": "software"
+            },
+            "financial_systems": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.financial_systems.value",
+              "type": "software"
+            },
+            "operating_systems": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.software.commonSkills.operating_systems.value",
+              "type": "software"
+            }
+          }
         },
-        "fightBaton": {
+        "wetware": {
           "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.fightBaton.value",
-          "attribute": "agility"
-        },
-        "charm": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.charm.value",
-          "attribute": "cynicism"
-        },
-        "charlatanery": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.charlatanery.value",
-          "attribute": "cynicism"
-        },
-        "lying": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.lying.value",
-          "attribute": "cynicism"
-        },
-        "forgery": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.forgery.value",
-          "attribute": "cynicism"
-        },
-        "interrogation": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.interrogation.value",
-          "attribute": "cynicism"
-        },
-        "intimidation": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.intimidation.value",
-          "attribute": "cynicism"
-        },
-        "falseLogic": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.falseLogic.value",
-          "attribute": "cynicism"
-        },
-        "oratory": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.oratory.value",
-          "attribute": "cynicism"
-        },
-        "psychology": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.psychology.value",
-          "attribute": "cynicism"
-        },
-        "bribery": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.bribery.value",
-          "attribute": "cynicism"
-        },
-        "suggestion": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.suggestion.value",
-          "attribute": "cynicism"
-        },
-        "ancientThrowWeapons": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.ancientThrowWeapons.value",
-          "attribute": "dexterity"
-        },
-        "projectilEnergyLaserWar": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.projectilEnergyLaserWar.value",
-          "attribute": "dexterity"
-        },
-        "vehicleWeapons": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.vehicleWeapons.value",
-          "attribute": "dexterity"
-        },
-        "warVehicleWeapons": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.warVehicleWeapons.value",
-          "attribute": "dexterity"
-        },
-        "missiles": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.missiles.value",
-          "attribute": "dexterity"
-        },
-        "mechanics": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.mechanics.value",
-          "attribute": "mechanics"
-        },
-        "engineering": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.engineering.value",
-          "attribute": "mechanics"
-        },
-        "robotics": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.robotics.value",
-          "attribute": "mechanics"
-        },
-        "dataAnalysis": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.dataAnalysis.value",
-          "attribute": "perception"
-        },
-        "bioEngineering": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.bioEngineering.value",
-          "attribute": "perception"
-        },
-        "bioChemistry": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.bioChemistry.value",
-          "attribute": "perception"
-        },
-        "dataSearch": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.dataSearch.value",
-          "attribute": "perception"
-        },
-        "demolition": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.demolition.value",
-          "attribute": "perception"
-        },
-        "nuclearPhysics": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.nuclearPhysics.value",
-          "attribute": "perception"
-        },
-        "mechanicEngineering": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.mechanicEngineering.value",
-          "attribute": "perception"
-        },
-        "medicine": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.medicine.value",
-          "attribute": "perception"
-        },
-        "chemistry": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.chemistry.value",
-          "attribute": "perception"
-        },
-        "security": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.security.value",
-          "attribute": "perception"
-        },
-        "survival": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.survival.value",
-          "attribute": "perception"
-        },
-        "surveillance": {
-          "value": 0,
-          "baseValue": 0,
-          "points": 0,
-          "formula": "1d20ms<@skills.surveillance.value",
-          "attribute": "perception"
+          "commonSkills": {
+            "bio_weapons": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.bio_weapons.value",
+              "type": "wetware"
+            },
+            "bio_engineering": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.bio_engineering.value",
+              "type": "wetware"
+            },
+            "cloning": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.cloning.value",
+              "type": "wetware"
+            },
+            "drug_therapy": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.drug_therapy.value",
+              "type": "wetware"
+            },
+            "medicine": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.medicine.value",
+              "type": "wetware"
+            },
+            "psycho_therapy": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.psycho_therapy.value",
+              "type": "wetware"
+            },
+            "sugestion": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.sugestion.value",
+              "type": "wetware"
+            },
+            "outside_life": {
+              "value": 0,
+              "isSpecialty": [false, false, false],
+              "isWeakness": false,
+              "formula": "1d20ms<@skills.wetware.commonSkills.outside_life.value",
+              "type": "wetware"
+            }
+          }
         }
       },
       "carry": 25,
@@ -362,7 +505,7 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "formula": "d20"
     },
     "feature": {
       "templates": ["base"]

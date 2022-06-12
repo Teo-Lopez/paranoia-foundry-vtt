@@ -3,8 +3,8 @@ import {
   isItem,
   isWeapon,
   showDialog,
-} from '../../utils/index.js'
-import { getDamage } from '../constants/healthStatus..js'
+} from "../../utils/index.js";
+import { getDamageDone } from "../constants/healthStatus..js";
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -16,7 +16,7 @@ export class ParanoiaItem extends Item {
   prepareData() {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
-    super.prepareData()
+    super.prepareData();
   }
 
   /**
@@ -25,11 +25,11 @@ export class ParanoiaItem extends Item {
    */
   getRollData() {
     // If present, return the actor's roll data.
-    if (!this.actor) return null
-    const rollData = this.actor.getRollData()
-    rollData.item = foundry.utils.deepClone(this.data.data)
+    if (!this.actor) return null;
+    const rollData = this.actor.getRollData();
+    rollData.item = foundry.utils.deepClone(this.data.data);
 
-    return rollData
+    return rollData;
   }
 
   /**
@@ -39,41 +39,41 @@ export class ParanoiaItem extends Item {
    */
   roll(item, rollData) {
     try {
-      return this._createRoll(item, rollData)
+      return this._createRoll(item, rollData);
     } catch (error) {
-      console.error(error)
+      console.error(error);
       ChatMessage.create({
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.data.description ?? '',
-      })
-      return
+        content: item.data.description ?? "",
+      });
+      return;
     }
   }
   //entry point for rolls
   _createRoll(item, rollData) {
     if (isItem(item)) {
-      return this._rollNormalFormula(item)
+      return this._rollNormalFormula(item);
     }
     if (isWeapon(item)) {
-      return this._weaponRoll(item, rollData)
+      return this._weaponRoll(item, rollData);
     }
   }
 
   _rollNormalFormula(item) {
-    const rollData = this.getRollData()
+    const rollData = this.getRollData();
     // Invoke the roll and submit it to chat.
-    const roll = new Roll(rollData.item.formula, rollData)
-    this._showRollMessage(`[${item.type}] ${item.name}`, roll)
+    const roll = new Roll(rollData.item.formula, rollData);
+    this._showRollMessage(`[${item.type}] ${item.name}`, roll);
   }
 
   _rollSkill(item) {
-    const rollData = this.getRollData()
-    console.log(item.data.mod, rollData)
+    const rollData = this.getRollData();
+    console.log(item.data.mod, rollData);
     // Invoke the roll and submit it to chat.
-    const roll = new Roll(rollData.item.formula, rollData)
-    this._showRollMessage(`[${item.type}] ${item.name}`, roll)
+    const roll = new Roll(rollData.item.formula, rollData);
+    this._showRollMessage(`[${item.type}] ${item.name}`, roll);
   }
   _hasAllData(rollData) {
     return (
@@ -81,14 +81,14 @@ export class ParanoiaItem extends Item {
       rollData.armor !== undefined &&
       Number.isInteger(rollData.resistance) &&
       Number.isInteger(rollData.armor)
-    )
+    );
   }
   _weaponRoll(item, rollData) {
     if (this._hasAllData(rollData)) {
-      this._rollDamageRoll(item, rollData.resistance, rollData.armor)
+      this._rollDamageRoll(item, rollData.resistance, rollData.armor);
     } else {
       showDialog({
-        title: 'Damage Roll',
+        title: "Damage Roll",
         content: `
                 <div>
                   <div class="grid">
@@ -100,41 +100,51 @@ export class ParanoiaItem extends Item {
                 </div>`,
         buttons: {
           armor: {
-            label: 'Tirar',
+            label: "Tirar",
             callback: (html) => {
-              const armor = $(html).find('[name=resistance]').val()
-              const resistance = $(html).find('[name=armor]').val()
-              this._rollDamageRoll(item, resistance, armor)
+              const armor = $(html).find("[name=resistance]").val();
+              const resistance = $(html).find("[name=armor]").val();
+              this._rollDamageRoll(item, resistance, armor);
             },
           },
         },
-        default: 'Tirar',
-      })
+        default: "Tirar",
+      });
     }
   }
 
   async _rollDamageRoll(item, resistance, armor) {
-    const skill = this.getRollData().skills[item.data.skill]
-    const numberToBeat = skill.value
-
+    const skill =
+      this.getRollData().skills.violence.commonSkills[item.data.skill];
+    const numberToBeat = skill.value;
+    console.log(skill.formula);
     const rollEntity = new Roll(skill.formula, {
-      skills: { projectilEnergyLaserWar: { value: numberToBeat } },
-    })
+      skills: {
+        violence: {
+          commonSkills: {
+            [item.data.skill]: {
+              value: numberToBeat,
+            },
+          },
+        },
+      },
+    });
 
-    const rollResult = await rollEntity.roll({ async: true })
-    const successMargin = rollResult.total
+    const rollResult = await rollEntity.roll({ async: true });
+    const successMargin = rollResult.total;
+    console.log(successMargin, "margen");
 
-    let [damage, damageString] = getDamage(
+    let [damage, damageString] = getDamageDone(
       item.data.damage,
       resistance,
       armor,
       successMargin
-    )
+    );
 
     return this._showRollMessage(
       `[${item.type}] ${item.name} - El oponente está ${damageString}`,
       rollEntity
-    )
+    );
 
     // const damageText = game.i18n.localize(
     //   CONFIG.PARANOIA.damageLabels[
@@ -151,12 +161,12 @@ export class ParanoiaItem extends Item {
   }
 
   _showRollMessage(label, roll) {
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor })
-    const rollMode = game.settings.get('core', 'rollMode')
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+    const rollMode = game.settings.get("core", "rollMode");
     roll.toMessage({
       speaker: speaker,
       rollMode: rollMode,
       flavor: label,
-    })
+    });
   }
 }
