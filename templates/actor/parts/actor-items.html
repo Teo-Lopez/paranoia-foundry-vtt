@@ -25,7 +25,9 @@
       <h4>{{item.name}}</h4>
     </div>
     <div class="item-data">{{item.data.weaponType}}</div>
-    <div class="item-data">{{item.data.damage}}</div>
+    <div class="item-data">
+      {{item.data.damage.min}}{{item.data.damage.augment}}{{item.data.damage.max}}
+    </div>
     <div class="item-data">{{item.data.reach}}</div>
     <div class="item-data">{{item.data.ammo}}</div>
     <div class="item-data">{{item.data.reloadTime}}</div>

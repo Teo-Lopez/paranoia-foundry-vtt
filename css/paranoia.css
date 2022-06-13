@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* Global styles */
 .window-app {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .rollable:hover,
@@ -159,6 +159,10 @@
   grid-column-end: span 12;
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
@@ -233,7 +237,7 @@
 }
 
 .paranoia .item-form {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .paranoia .sheet-header {
@@ -541,4 +545,37 @@
 
 .paranoia .error {
   color: red;
+}
+
+.paranoia .skills {
+  padding: 0 6px;
+}
+
+.paranoia .skills .header {
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 1.5px;
+}
+
+.paranoia .skills .header input {
+  width: 24px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.paranoia .skills input[type="checkbox"] {
+  height: 10px;
+}
+
+.paranoia .border-green {
+  border: 1px solid green;
+}
+
+.paranoia .border-red {
+  border: 1px solid red;
+}
+
+.paranoia .skills-group:nth-child(2n) {
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
 }

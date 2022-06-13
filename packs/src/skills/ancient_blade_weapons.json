@@ -1,9 +1,0 @@
-{
-    "name": "Armas blancas antigüas",
-    "type": "skill",
-    "data": {
-        "name": "test",
-        "description": "test test",
-        "mod": "agility"
-    }
-}
